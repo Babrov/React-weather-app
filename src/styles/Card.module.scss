@@ -1,0 +1,71 @@
+.wrapper {
+  padding: 10px;
+  min-width: 150px;
+  height: auto;
+  color: rgb(253, 252, 252);
+  border-radius: 10px;
+  flex: 0 1 10%;
+  margin: 10px 10px 0px 0px;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.front_side {
+  backface-visibility: hidden;
+  overflow: hidden;
+  .city {
+    text-align: center;
+  }
+  .icon {
+    margin: 0;
+    text-align: center;
+  }
+  .time {
+    text-align: right;
+    margin-bottom: 0;
+  }
+  .temp {
+    margin: 5px;
+    text-align: center;
+  }
+  .descr {
+    margin-top: 0;
+  }
+  .date {
+    margin-top: 0;
+    text-align: right;
+  }
+
+  .moreInfo {
+    cursor: pointer;
+
+    border-radius: 5px;
+    float: right;
+    button {
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      &:focus {
+        outline: none;
+      }
+    }
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+.back_side {
+}
+.isFlipped {
+  transform: rotateY(180 deg);
+}
+
+.card_cold {
+  background: linear-gradient(to bottom, #61dcff 0%, #767fc5 100%);
+}
+.card_warm {
+  background: linear-gradient(to bottom, #f17d11, #d19615);
+}

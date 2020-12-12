@@ -1,0 +1,65 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  .input {
+    color: white;
+    font-size: 22px;
+    input {
+      max-width: 100%;
+      margin-left: 10px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+      padding-left: 5px;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      border-bottom: 1px solid whitesmoke;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+  .location,
+  .getButton {
+    margin-top: 10px;
+    border: none;
+    font-size: 18px;
+    color: #202129;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-left: 5px;
+
+    &:hover {
+      color: #202129;
+      background-color: #e1e2e2;
+      opacity: 1;
+      cursor: pointer;
+      box-shadow: 2px 5px 16px 0px #0b325e, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    }
+    &:focus {
+      outline: none;
+      animation: button_animation 0.1s ease-in infinite;
+    }
+    .icon {
+      color: lightblue;
+      margin: 1px;
+    }
+  }
+}
+
+.cards_holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@keyframes button_animation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}

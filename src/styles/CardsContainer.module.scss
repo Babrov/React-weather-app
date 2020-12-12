@@ -41,7 +41,7 @@
     }
     &:focus {
       outline: none;
-      animation: button_animation 0.1s ease-in infinite;
+      animation: button_animation 0.1s ease-in;
     }
     .icon {
       color: lightblue;

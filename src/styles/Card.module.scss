@@ -9,7 +9,7 @@
 .inner {
   width: 100%;
   height: 100%;
-  transition: transform 0.5s;
+  transition: transform 1s;
   transform-style: preserve-3d;
   position: relative;
   border-radius: 10px;
@@ -18,7 +18,7 @@
 .side {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: auto;
   backface-visibility: hidden;
   overflow: hidden;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
@@ -26,8 +26,10 @@
 }
 .front_side {
   .icon {
-    margin: 0;
-    text-align: center;
+    margin: 0 auto;
+    display: block;
+    width: 70px;
+    height: auto;
   }
   .temp {
     margin: 5px;
@@ -51,7 +53,7 @@
   }
 
   .moreInfo {
-    margin-top: 30px;
+    margin-top: 10px;
     float: right;
   }
 }
@@ -73,11 +75,13 @@
   }
 }
 .city {
+  margin-top: 30px;
+  font-size: 20px;
   text-align: center;
   color: black;
   position: relative;
 }
-.city::after {
+.city::before {
   content: '';
   display: block;
   position: absolute;
@@ -90,6 +94,7 @@
   background: linear-gradient(to bottom left, lightblue 5%, whitesmoke 115%);
 }
 .back_side {
+  height: auto;
   transform: rotateY(180deg);
   .fiveDays {
     text-align: center;
@@ -97,7 +102,7 @@
     h3 {
       display: grid;
       grid-template: 1fr/1fr 1fr;
-      margin: 10px;
+      margin: 15px;
       text-align: start;
       span {
         margin-left: 25px;
@@ -111,6 +116,17 @@
 }
 .isFlipped {
   transform: rotateY(-180deg);
+}
+.close {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  margin: -10px;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .card_cold {

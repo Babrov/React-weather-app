@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 let AddWeather = (props) => {
   return (
-    <div>
+    <div className={styles.form}>
       <form name="city" onSubmit={props.handleSubmit}>
         <label className={styles.input}>
           City:

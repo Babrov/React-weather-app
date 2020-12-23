@@ -10,7 +10,7 @@ import {
 
 import { useState } from 'react';
 
-const Card = ({ info }) => {
+const Card = ({ info, onRemove }) => {
   const [flipped, setFlipped] = useState(false);
 
   const { name, main, weather, dt } = info;
@@ -40,7 +40,7 @@ const Card = ({ info }) => {
             style.side
           } ${style.front_side}`}
         >
-          <span className={style.close}>
+          <span className={style.close} onClick={onRemove}>
             <FontAwesomeIcon icon={faTimes} />
           </span>
           <h2 className={style.city}>{name}</h2>
@@ -64,7 +64,7 @@ const Card = ({ info }) => {
             style.side
           } ${style.back_side}`}
         >
-          <span className={style.close}>
+          <span className={style.close} onClick={onRemove}>
             <FontAwesomeIcon icon={faTimes} />
           </span>
           <h2 className={style.city}>{name}</h2>

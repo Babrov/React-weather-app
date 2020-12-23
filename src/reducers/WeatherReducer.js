@@ -1,27 +1,41 @@
-import { ADD_CARD, GET_CITY, GET_LOCATION } from '../actions/WeatherAction';
+import {
+  ADD_CARD,
+  GET_CITY,
+  GET_LOCATION,
+  REMOVE_CARD,
+} from '../actions/constants';
 
 const initialState = {
-  cityWeather: [],
-  localWeather: [],
-  cardDataArray: [],
+  weatherArray: [],
 };
-
+const arrayFromSet = (array) => {
+  return Array.from(new Set([...array].map((a) => a.id))).map((id) => {
+    return [...array].find((a) => a.id === id);
+  });
+};
 export const WeatherReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CITY:
       return {
         ...state,
-        cityWeather: [action.payload, ...state.cityWeather],
+        weatherArray: [action.payload, ...state.weatherArray],
       };
     case GET_LOCATION:
       return {
         ...state,
-        localWeather: [action.payload],
+        weatherArray: arrayFromSet([action.payload, ...state.weatherArray]),
       };
     case ADD_CARD:
       return {
         ...state,
-        cardDataArray: [...state.cityWeather, ...state.localWeather],
+        weatherArray: arrayFromSet([...state.weatherArray]),
+      };
+    case REMOVE_CARD:
+      return {
+        ...state,
+        weatherArray: [...state.weatherArray].filter(
+          (item, index) => index !== action.payload
+        ),
       };
     default:
       return state;

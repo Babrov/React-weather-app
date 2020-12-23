@@ -53,8 +53,9 @@
   }
 
   .moreInfo {
-    margin-top: 10px;
+    margin-top: 11px;
     float: right;
+    padding-bottom: 5px;
   }
 }
 .navButtons {
@@ -112,6 +113,7 @@
   }
   .backButton {
     float: left;
+    padding-bottom: 5px;
   }
 }
 .isFlipped {
@@ -133,5 +135,5 @@
   background: linear-gradient(to bottom, #61dcff 0%, #767fc5 100%);
 }
 .card_warm {
-  background: linear-gradient(to bottom, #f17d11, #d19615);
+  background: linear-gradient(to bottom, #f6eade, #e29e0b);
 }

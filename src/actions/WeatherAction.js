@@ -1,8 +1,11 @@
 import axios from 'axios';
-export const GET_CITY = 'FETCH_CITY';
-export const GET_LOCATION = 'FETCH_LOCATION';
-export const ADD_CARD = 'ADD_CARD';
-export const API_KEY = '05f7911bd80b989d6f1878b5b3f72620';
+import {
+  ADD_CARD,
+  GET_CITY,
+  GET_LOCATION,
+  API_KEY,
+  REMOVE_CARD,
+} from '../actions/constants';
 
 export const getCityWeather = (cityName) => (dispatch) => {
   axios
@@ -15,7 +18,9 @@ export const getCityWeather = (cityName) => (dispatch) => {
         payload: response.data,
       });
     })
-    .catch(() => {});
+    .catch(() => {
+      alert('Please write correct city');
+    });
 };
 
 export const getCoordsWeather = (lat, lon) => (dispatch) => {
@@ -31,9 +36,15 @@ export const getCoordsWeather = (lat, lon) => (dispatch) => {
     });
 };
 
-export const addCard = (card) => (dispatch) => {
+export const addCard = () => (dispatch) => {
   dispatch({
     type: ADD_CARD,
-    payload: card,
+  });
+};
+
+export const removeCard = (index) => (dispatch) => {
+  dispatch({
+    type: REMOVE_CARD,
+    payload: index,
   });
 };

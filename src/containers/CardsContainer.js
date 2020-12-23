@@ -6,6 +6,7 @@ import {
   getCityWeather,
   getCoordsWeather,
   addCard,
+  removeCard,
 } from '../actions/WeatherAction';
 import AddWeather from '../components/AddWeather';
 
@@ -13,21 +14,16 @@ const CardsContainer = (props) => {
   const {
     getCoordsWeather,
     getCityWeather,
-    cardDataArray,
-    localWeather,
-    cityWeather,
+    weatherArray,
     addCard,
+    removeCard,
   } = props;
+
   useEffect(() => {
-    if (localWeather.length > 0) {
-      addCard(localWeather);
+    if (weatherArray.length > 0) {
+      addCard();
     }
-  }, [localWeather]);
-  useEffect(() => {
-    if (cityWeather.length > 0) {
-      addCard(cityWeather);
-    }
-  }, [cityWeather]);
+  }, []);
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -38,17 +34,22 @@ const CardsContainer = (props) => {
       getCoordsWeather(coordinates.lat, coordinates.lng);
     });
   };
-  let filtered = cardDataArray.filter((a) => !cardDataArray.includes(a.id));
+
   const OnSubmit = () => {
-    const name = document.getElementById('cityName');
-    getCityWeather(name.value);
+    getCityWeather(document.getElementById('cityName').value);
   };
   return (
     <div className={styles.wrapper}>
       <AddWeather getLocation={getLocation} onSubmit={OnSubmit} />
       <div className={styles.cards_holder}>
-        {filtered.map((dataObj) => {
-          return <Card key={dataObj.id} info={dataObj} />;
+        {weatherArray.map((dataObj, index) => {
+          return (
+            <Card
+              key={dataObj.id}
+              info={dataObj}
+              onRemove={() => removeCard(index)}
+            />
+          );
         })}
       </div>
     </div>
@@ -56,13 +57,12 @@ const CardsContainer = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  localWeather: state.weather.localWeather,
-  cityWeather: state.weather.cityWeather,
-  cardDataArray: state.weather.cardDataArray,
+  weatherArray: state.weather.weatherArray,
 });
 
 export default connect(mapStateToProps, {
   getCityWeather,
   getCoordsWeather,
   addCard,
+  removeCard,
 })(CardsContainer);

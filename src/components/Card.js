@@ -1,19 +1,37 @@
 import style from '../styles/Card.module.scss';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
   faArrowRight,
   faArrowLeft,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
+
 import { useState } from 'react';
 
-const Card = ({ localWeather }) => {
+const Card = ({ info }) => {
   const [flipped, setFlipped] = useState(false);
-  const { name, main, weather } = localWeather;
+
+  const { name, main, weather, dt } = info;
+
+  const date = new Date(dt * 1000);
+  const dateWeek = date.toLocaleString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  });
+  const dateTime = date.toLocaleString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
   let icon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
+
   const handleClick = () => {
     setFlipped(!flipped);
   };
+
   return (
     <div className={` ${style.card}`}>
       <div className={` ${style.inner}  ${flipped ? style.isFlipped : ''}  `}>
@@ -32,8 +50,8 @@ const Card = ({ localWeather }) => {
             {weather[0].description.charAt(0).toUpperCase() +
               weather[0].description.slice(1)}
           </p>
-          <h3 className={style.time}>09:41</h3>
-          <p className={style.date}>Fri 09 Jan</p>
+          <h3 className={style.time}>{dateTime}</h3>
+          <p className={style.date}>{dateWeek}</p>
           <label className={`${style.navButtons} ${style.moreInfo}`}>
             5 days forecast
             <button onClick={handleClick}>

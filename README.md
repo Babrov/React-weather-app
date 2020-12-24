@@ -1,7 +1,29 @@
-Weather App with React
+# Weather App with React
 
 Simple Weather App, where you can type city where you want to know the weather or your local weather.
 On front side of card displays main info about weather, on back side additional info. Also it change color of your card if temperature is cold or warm. Simple adaptive design.
+
+[GithubPages](http://Babrov.github.io/React-weather-app)
+
+# Main tasks
+
+Input city where we want to know the weather.
+On front side - main info, back side more.
+Button for location weather.
+Color of card depends on temperature.
+Card spin on button click.
+Adaptive, mobile first.
+
+# Used technologies
+
+[OpenWeatherMap](https://openweathermap.org/api)
+[React](https://ru.reactjs.org/)
+[Hooks](https://ru.reactjs.org/)
+[Redux](https://redux.js.org/)
+[Redux-form](https://redux-form.com/8.3.0/)
+[axios](https://github.com/axios/axios)
+Eslint + Prettier
+Sass- Modules
 
 # Getting Started with Create React App
 

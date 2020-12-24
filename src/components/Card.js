@@ -1,40 +1,43 @@
-import style from '../styles/Card.module.scss';
+import style from "../styles/Card.module.scss"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import {
   faArrowRight,
   faArrowLeft,
   faTimes,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons"
 
-import { useState } from 'react';
+import { useState } from "react"
 
 const Card = ({ info, onRemove }) => {
-  const [flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = useState(false)
 
-  const { name, main, weather, dt } = info;
+  const { name, main, weather, dt, wind, sys } = info
 
-  const date = new Date(dt * 1000);
-  const dateWeek = date.toLocaleString('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  });
-  const dateTime = date.toLocaleString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+  const date = new Date(dt * 1000)
+  const dateWeek = date.toLocaleString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  })
 
-  let icon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
+  const takeTimeFromDate = (date) => {
+    let time = date.toLocaleString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    })
+    return time
+  }
+  let icon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
 
   const handleClick = () => {
-    setFlipped(!flipped);
-  };
+    setFlipped(!flipped)
+  }
 
   return (
     <div className={` ${style.card}`}>
-      <div className={` ${style.inner}  ${flipped ? style.isFlipped : ''}  `}>
+      <div className={` ${style.inner}  ${flipped ? style.isFlipped : ""}  `}>
         <div
           className={`${main.temp <= 15 ? style.card_cold : style.card_warm} ${
             style.side
@@ -50,7 +53,7 @@ const Card = ({ info, onRemove }) => {
             {weather[0].description.charAt(0).toUpperCase() +
               weather[0].description.slice(1)}
           </p>
-          <h3 className={style.time}>{dateTime}</h3>
+          <h3 className={style.time}>{takeTimeFromDate(date)}</h3>
           <p className={style.date}>{dateWeek}</p>
           <label className={`${style.navButtons} ${style.moreInfo}`}>
             5 days forecast
@@ -68,21 +71,23 @@ const Card = ({ info, onRemove }) => {
             <FontAwesomeIcon icon={faTimes} />
           </span>
           <h2 className={style.city}>{name}</h2>
-          <div className={style.fiveDays}>
+          <div className={style.moreData}>
             <h3>
-              Saturday <span>-10°С</span>
+              Feels :<span>{`${Math.round(main.feels_like)} °С`}</span>
             </h3>
             <h3>
-              sunday<span>-10°С</span>
+              Pressure :<span>{`${main.pressure} hPa`}</span>
             </h3>
             <h3>
-              Monday<span>-10°С</span>
+              Wind :<span>{`${wind.speed} m/s`}</span>
             </h3>
             <h3>
-              Thursday<span>-10°С</span>
+              Sunrise :
+              <span>{`${takeTimeFromDate(new Date(sys.sunrise * 1000))}`}</span>
             </h3>
             <h3>
-              Saturday<span>-10°С</span>
+              Sunset :
+              <span>{`${takeTimeFromDate(new Date(sys.sunset * 1000))}`}</span>
             </h3>
           </div>
           <label className={`${style.navButtons} ${style.backButton}`}>
@@ -94,7 +99,7 @@ const Card = ({ info, onRemove }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

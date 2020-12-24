@@ -97,16 +97,15 @@
 .back_side {
   height: auto;
   transform: rotateY(180deg);
-  .fiveDays {
+  .moreData {
     text-align: center;
     padding: 2px;
     h3 {
       display: grid;
-      grid-template: 1fr/1fr 1fr;
-      margin: 15px;
+      grid-template: 1fr/1fr auto;
+      margin: 17px 15px;
       text-align: start;
       span {
-        margin-left: 25px;
         flex: 1;
       }
     }

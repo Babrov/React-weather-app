@@ -1,3 +1,8 @@
+Weather App with React
+
+Simple Weather App, where you can type city where you want to know the weather or your local weather.
+On front side of card displays main info about weather, on back side additional info. Also it change color of your card if temperature is cold or warm. Simple adaptive design.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

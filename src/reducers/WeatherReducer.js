@@ -18,7 +18,7 @@ export const WeatherReducer = (state = initialState, action) => {
     case GET_CITY:
       return {
         ...state,
-        weatherArray: [action.payload, ...state.weatherArray],
+        weatherArray: arrayFromSet([action.payload, ...state.weatherArray]),
       };
     case GET_LOCATION:
       return {

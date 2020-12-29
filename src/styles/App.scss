@@ -1,16 +1,9 @@
 * {
   margin: 0 auto;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  margin: 0 auto;
-  background-image: url('../images/image\ 1.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("../images/image\ 1.png") no-repeat bottom/cover;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }

@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
-import styles from '../styles/CardsContainer.module.scss';
-import Card from '../components/Card';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import styles from "../styles/CardsContainer.module.scss";
+import Card from "../components/Card";
+import AddWeather from "../components/AddWeather";
 import {
-  getCityWeather,
   getCoordsWeather,
-  addCard,
+  getCityWeather,
   removeCard,
-} from '../actions/WeatherAction';
-import AddWeather from '../components/AddWeather';
+  addCard,
+} from "../actions/WeatherAction";
 
 const CardsContainer = (props) => {
   const {
     getCoordsWeather,
     getCityWeather,
     weatherArray,
-    addCard,
     removeCard,
+    addCard,
   } = props;
 
   useEffect(() => {
@@ -36,8 +36,9 @@ const CardsContainer = (props) => {
   };
 
   const OnSubmit = () => {
-    getCityWeather(document.getElementById('cityName').value);
+    getCityWeather(document.getElementById("cityName").value);
   };
+
   return (
     <div className={styles.wrapper}>
       <AddWeather getLocation={getLocation} onSubmit={OnSubmit} />
@@ -61,8 +62,8 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  getCityWeather,
   getCoordsWeather,
-  addCard,
+  getCityWeather,
   removeCard,
+  addCard,
 })(CardsContainer);

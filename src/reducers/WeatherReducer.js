@@ -3,14 +3,14 @@ import {
   GET_CITY,
   GET_LOCATION,
   REMOVE_CARD,
-} from '../actions/constants';
+} from "../actions/constants";
 
 const initialState = {
   weatherArray: [],
 };
 const arrayFromSet = (array) => {
-  return Array.from(new Set([...array].map((a) => a.id))).map((id) => {
-    return [...array].find((a) => a.id === id);
+  return Array.from(new Set([...array].map((el) => el.id))).map((id) => {
+    return [...array].find((el) => el.id === id);
   });
 };
 export const WeatherReducer = (state = initialState, action) => {

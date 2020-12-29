@@ -1,47 +1,44 @@
-import style from "../styles/Card.module.scss"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
+import style from "../styles/Card.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import {
   faArrowRight,
   faArrowLeft,
   faTimes,
-} from "@fortawesome/free-solid-svg-icons"
-
-import { useState } from "react"
+} from "@fortawesome/free-solid-svg-icons";
 
 const Card = ({ info, onRemove }) => {
-  const [flipped, setFlipped] = useState(false)
+  const [flipped, setFlipped] = useState(false);
 
-  const { name, main, weather, dt, wind, sys } = info
+  const { name, main, weather, dt, wind, sys } = info;
 
-  const date = new Date(dt * 1000)
+  const date = new Date(dt * 1000);
   const dateWeek = date.toLocaleString("en-US", {
     weekday: "short",
     month: "short",
     day: "numeric",
-  })
+  });
 
   const takeTimeFromDate = (date) => {
     let time = date.toLocaleString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
-    })
-    return time
-  }
-  let icon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+    });
+    return time;
+  };
+  let icon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
   const handleClick = () => {
-    setFlipped(!flipped)
-  }
+    setFlipped(!flipped);
+  };
 
   return (
-    <div className={` ${style.card}`}>
-      <div className={` ${style.inner}  ${flipped ? style.isFlipped : ""}  `}>
+    <div className={`${style.card}`}>
+      <div className={`${style.inner} ${flipped ? style.isFlipped : ""}`}>
         <div
-          className={`${main.temp <= 15 ? style.card_cold : style.card_warm} ${
-            style.side
-          } ${style.front_side}`}
+          className={`${main.temp <= 15 ? style.card_cold : style.card_warm} 
+          ${style.side} 
+          ${style.front_side}`}
         >
           <span className={style.close} onClick={onRemove}>
             <FontAwesomeIcon icon={faTimes} />
@@ -99,7 +96,7 @@ const Card = ({ info, onRemove }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

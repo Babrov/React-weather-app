@@ -53,7 +53,7 @@ const Card = ({ info, onRemove }) => {
           <h3 className={style.time}>{takeTimeFromDate(date)}</h3>
           <p className={style.date}>{dateWeek}</p>
           <label className={`${style.navButtons} ${style.moreInfo}`}>
-            5 days forecast
+            More Info
             <button onClick={handleClick}>
               <FontAwesomeIcon icon={faArrowRight} />
             </button>

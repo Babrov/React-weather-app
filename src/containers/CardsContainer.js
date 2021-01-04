@@ -9,6 +9,7 @@ import {
   removeCard,
   addCard,
 } from "../actions/WeatherAction";
+import PropTypes from "prop-types";
 
 const CardsContainer = (props) => {
   const {
@@ -60,6 +61,14 @@ const CardsContainer = (props) => {
 const mapStateToProps = (state) => ({
   weatherArray: state.weather.weatherArray,
 });
+
+CardsContainer.propTypes = {
+  getCoordsWeather: PropTypes.func,
+  getCityWeather: PropTypes.func,
+  weatherArray: PropTypes.array,
+  removeCard: PropTypes.func,
+  addCard: PropTypes.func,
+};
 
 export default connect(mapStateToProps, {
   getCoordsWeather,

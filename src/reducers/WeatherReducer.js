@@ -8,6 +8,8 @@ import {
 const initialState = {
   weatherArray: [],
 };
+
+//saves non-repeating data to display it. So cards wont repeat on screen.
 const arrayFromSet = (array) => {
   return Array.from(new Set([...array].map((el) => el.id))).map((id) => {
     return [...array].find((el) => el.id === id);

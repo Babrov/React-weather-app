@@ -6,6 +6,7 @@ import {
   faArrowLeft,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 const Card = ({ info, onRemove }) => {
   const [flipped, setFlipped] = useState(false);
@@ -97,6 +98,27 @@ const Card = ({ info, onRemove }) => {
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  info: PropTypes.shape({
+    name: PropTypes.string,
+    weather: PropTypes.array,
+    dt: PropTypes.number,
+    main: PropTypes.shape({
+      temp: PropTypes.number,
+      feels_like: PropTypes.number,
+      pressure: PropTypes.number,
+    }),
+    wind: PropTypes.shape({
+      speed: PropTypes.number,
+    }),
+    sys: PropTypes.shape({
+      sunrise: PropTypes.number,
+      sunset: PropTypes.number,
+    }),
+  }),
+  onRemove: PropTypes.func,
 };
 
 export default Card;

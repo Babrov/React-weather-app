@@ -1,0 +1,17 @@
+* {
+  margin: 0 auto;
+  font-family: "Questrial", sans-serif;
+}
+
+body {
+  display: flex;
+  background: linear-gradient(to right, #50c9c3, #96deda);
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

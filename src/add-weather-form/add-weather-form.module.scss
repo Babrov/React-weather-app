@@ -1,16 +1,11 @@
-.wrapper {
-  width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  .form {
+.root {
     margin-top: 50px;
     margin-bottom: 10px;
-  }
+
   .input {
     color: white;
     font-size: 22px;
+
     input {
       max-width: 100%;
       margin-left: 10px;
@@ -22,10 +17,12 @@
       border: none;
       border-bottom: 1px solid whitesmoke;
     }
+
     input:focus {
       outline: none;
     }
   }
+
   .location,
   .getButton {
     margin-top: 10px;
@@ -43,10 +40,12 @@
       cursor: pointer;
       box-shadow: 2px 5px 16px 0px #0b325e, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     }
+
     &:focus {
       outline: none;
       animation: button_animation 0.1s ease-in;
     }
+
     .icon {
       color: lightblue;
       margin: 1px;
@@ -54,11 +53,6 @@
   }
 }
 
-.cards_holder {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 @keyframes button_animation {
   0% {
     transform: scale(1);

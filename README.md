@@ -11,7 +11,7 @@ Input city where we want to know the weather.
 On front side - main info, back side more.
 Button for location weather.
 Color of card depends on temperature.
-Card spin on button click.
+CardItem spin on button click.
 Adaptive, mobile first.
 
 # Used technologies
